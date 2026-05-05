@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aparna Residency | Your Home Away From Home in Balasore</title>
+    <meta name="description"
+        content="Spacious family-friendly rental in the heart of Balasore, Odisha. 2 Bedrooms, Kitchen, Dining, Ensuite Bath, and more.">
+    <!-- Google Fonts: Inter and Playfair Display (Serif for Logo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            primary: '#C8860A',
+                            secondary: '#8B5E3C',
+                        },
+                        gray: {
+                            50: '#FDF6EC',
+                            100: '#F5DEB3',
+                            200: '#e5d3b3',
+                            300: '#d1bfa3',
+                            400: '#a38d72',
+                            500: '#8B7355',
+                            600: '#8B7355',
+                            700: '#4a3320',
+                            800: '#2C1A0E',
+                            900: '#2C1A0E',
+                            950: '#1e1109',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'scroll-left': 'scrollLeft 30s linear infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        scrollLeft: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles & Utilities */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background-color: #FDF6EC;
+        }
+
+        .glass-nav {
+            background: transparent;
+            transition: background 0.3s ease;
+        }
+        
+        .glass-nav.scrolled {
+            background: rgba(20, 10, 3, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(to top, rgba(30, 15, 5, 0.85) 0%, rgba(60, 30, 10, 0.45) 50%, rgba(0, 0, 0, 0.10) 100%);
+        }
+
+        .hero-headline {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 700;
+            color: #FFF8F0;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 {
+            transition-delay: 100ms;
+        }
+
+        .delay-200 {
+            transition-delay: 200ms;
+        }
+
+        .delay-300 {
+            transition-delay: 300ms;
+        }
+
+        /* Lightbox */
+        #lightbox {
+            transition: opacity 0.3s ease;
+        }
+
+        #lightbox.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Carousel */
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Masonry Grid (CSS Columns approach for simplicity, flex could also work) */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 relative">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-white/10 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif text-2xl font-semibold tracking-tight text-[#F5DEB3]">Aparna
+                        Residency</a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home"
+                        class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors">Home</a>
+                    <a href="#amenities"
+                        class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors">Amenities</a>
+                    <a href="#gallery"
+                        class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors">Gallery</a>
+                    <a href="#why-us"
+                        class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors">Why Us</a>
+                    <a href="#contact"
+                        class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors">Contact</a>
+                    <a href="#enquiry"
+                        class="inline-flex items-center justify-center px-5 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-brand-primary hover:bg-[#a66f08] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary">
+                        Book a Visit
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none p-2"
+                        aria-label="Toggle menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-lg absolute w-full left-0 top-16">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home"
+                    class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Home</a>
+                <a href="#amenities"
+                    class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Amenities</a>
+                <a href="#gallery"
+                    class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Gallery</a>
+                <a href="#why-us"
+                    class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Why
+                    Us</a>
+                <a href="#contact"
+                    class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact</a>
+                <a href="#enquiry"
+                    class="mobile-link block w-full text-center mt-4 px-5 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-gray-900 hover:bg-gray-800">
+                    Book a Visit
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="photos/hero.png" alt="Aparna Residency front view"
+                class="w-full h-full object-cover object-center"
+                onerror="this.src='https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80'">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center pt-16">
+            <div style="background: rgba(200, 134, 10, 0.25); border: 1px solid rgba(200, 134, 10, 0.6); color: #FFE4B0; backdrop-filter: blur(8px);"
+                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-6 animate-fade-in-up delay-100">
+                <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                    </path>
+                </svg>
+                1000 sq. ft · Family-Friendly
+            </div>
+            <h1 class="hero-headline font-serif mb-6 animate-fade-in-up">
+                Your Home Away From Home
+            </h1>
+            <p class="text-lg md:text-xl text-[#F5DEB3] mb-10 max-w-2xl font-light animate-fade-in-up delay-200" style="font-weight: 300;">
+                Spacious family-friendly rental in the heart of Balasore, Odisha.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-300 w-full sm:w-auto">
+                <a href="#amenities"
+                    class="px-8 py-3.5 border border-transparent text-base font-medium rounded-full text-white bg-brand-primary hover:bg-[#a66f08] hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 w-full sm:w-auto text-center">
+                    Explore Amenities
+                </a>
+                <a href="#contact"
+                    class="px-8 py-3.5 text-base font-medium rounded-full text-[#FFF8F0] hover:bg-white/10 hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 w-full sm:w-auto text-center backdrop-blur-sm"
+                    style="border: 2px solid #F5DEB3;">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+
+        <a href="#amenities"
+            class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce focus:outline-none"
+            aria-label="Scroll down">
+            <svg class="w-6 h-6 opacity-70 hover:opacity-100 transition-opacity" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                </path>
+            </svg>
+        </a>
+    </section>
+
+    <!-- SECTION 2: THE SPACE -->
+    <section id="amenities" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">The Space</h2>
+                <div class="w-16 h-1 bg-gray-900 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Stats Counters -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-20 animate-on-scroll delay-100">
+                <div
+                    class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:shadow-md transform hover:-translate-y-1 transition-all duration-300">
+                    <div class="text-4xl font-bold text-gray-900 mb-2 flex justify-center items-center">
+                        <span class="counter" data-target="1000">0</span><span class="text-3xl">+</span>
+                    </div>
+                    <div class="text-sm font-medium text-gray-500 uppercase tracking-wide">Sq. Ft. Area</div>
+                </div>
+                <div
+                    class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:shadow-md transform hover:-translate-y-1 transition-all duration-300">
+                    <div class="text-4xl font-bold text-gray-900 mb-2">
+                        <span class="counter" data-target="2">0</span>
+                    </div>
+                    <div class="text-sm font-medium text-gray-500 uppercase tracking-wide">Bedrooms</div>
+                </div>
+                <div
+                    class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:shadow-md transform hover:-translate-y-1 transition-all duration-300">
+                    <div class="text-4xl font-bold text-gray-900 mb-2">
+                        <span class="counter" data-target="1">0</span>
+                    </div>
+                    <div class="text-sm font-medium text-gray-500 uppercase tracking-wide">Ensuite Bath</div>
+                </div>
+                <div
+                    class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:shadow-md transform hover:-translate-y-1 transition-all duration-300">
+                    <div class="text-4xl font-bold text-gray-900 mb-2">
+                        <span class="counter" data-target="1">0</span>
+                    </div>
+                    <div class="text-sm font-medium text-gray-500 uppercase tracking-wide">Prayer Room</div>
+                </div>
+            </div>
+
+            <!-- Amenities Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-on-scroll delay-200">
+                <!-- Amenity 1 -->
+                <div
+                    class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-center">
+                    <div
+                        class="w-14 h-14 mx-auto bg-gray-50 rounded-full flex items-center justify-center mb-5 group-hover:bg-gray-900 transition-colors duration-300">
+                        <svg class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900">Two Spacious Bedrooms</h3>
+                </div>
+                <!-- Amenity 2 -->
+                <div
+                    class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-center">
+                    <div
+                        class="w-14 h-14 mx-auto bg-gray-50 rounded-full flex items-center justify-center mb-5 group-hover:bg-gray-900 transition-colors duration-300">
+                        <svg class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900">Well-Equipped Kitchen</h3>
+                </div>
+                <!-- Amenity 3 -->
+                <div
+                    class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-center">
+                    <div
+                        class="w-14 h-14 mx-auto bg-gray-50 rounded-full flex items-center justify-center mb-5 group-hover:bg-gray-900 transition-colors duration-300">
+                        <svg class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900">Dining Area</h3>
+                </div>
+                <!-- Amenity 4 -->
+                <div
+                    class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-center">
+                    <div
+                        class="w-14 h-14 mx-auto bg-gray-50 rounded-full flex items-center justify-center mb-5 group-hover:bg-gray-900 transition-colors duration-300">
+                        <svg class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900">Master BR with Ensuite Bath</h3>
+                </div>
+                <!-- Amenity 5 -->
+                <div
+                    class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-center">
+                    <div
+                        class="w-14 h-14 mx-auto bg-gray-50 rounded-full flex items-center justify-center mb-5 group-hover:bg-gray-900 transition-colors duration-300">
+                        <svg class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900">Balcony — Breathe Easy</h3>
+                </div>
+                <!-- Amenity 6 -->
+                <div
+                    class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-center">
+                    <div
+                        class="w-14 h-14 mx-auto bg-gray-50 rounded-full flex items-center justify-center mb-5 group-hover:bg-gray-900 transition-colors duration-300">
+                        <svg class="w-7 h-7 text-gray-700 group-hover:text-white transition-colors duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900">Dedicated Worship Room</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: PHOTO GALLERY -->
+    <section id="gallery" class="py-24 bg-gray-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Inside the Home</h2>
+                <div class="w-16 h-1 bg-white mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Masonry Grid -->
+            <div class="masonry-grid" id="gallery-container">
+                <!-- Images will be inserted here by JS to avoid repetition -->
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex items-center justify-center">
+        <button id="lightbox-close"
+            class="absolute top-6 right-6 text-white/70 hover:text-white p-2 focus:outline-none transition-colors"
+            aria-label="Close fullscreen">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <button id="lightbox-prev"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white p-4 focus:outline-none transition-colors"
+            aria-label="Previous image">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <div class="max-w-5xl max-h-[80vh] px-4">
+            <img id="lightbox-img" src="" alt="Fullscreen view"
+                class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl transition-transform duration-300">
+        </div>
+        <button id="lightbox-next"
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white p-4 focus:outline-none transition-colors"
+            aria-label="Next image">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- SECTION 4: WHY CHOOSE US -->
+    <section id="why-us" class="py-24 bg-gray-50 relative border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Why Families Choose Aparna
+                    Residency</h2>
+                <div class="w-16 h-1 bg-gray-900 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Cards generated via JS for brevity but we'll write them out -->
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll">
+                    <div class="text-4xl mb-4">📍</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Prime Location</h3>
+                    <p class="text-sm text-gray-600">Walking distance to key services in Balasore.</p>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll delay-100">
+                    <div class="text-4xl mb-4">🏡</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Modern Amenities</h3>
+                    <p class="text-sm text-gray-600">Fully equipped for comfortable family living.</p>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll delay-200">
+                    <div class="text-4xl mb-4">💰</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Affordable Pricing</h3>
+                    <p class="text-sm text-gray-600">Transparent rent, no hidden charges.</p>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll delay-300">
+                    <div class="text-4xl mb-4">🔒</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Safety & Security</h3>
+                    <p class="text-sm text-gray-600">24/7 CCTV camera coverage throughout.</p>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll">
+                    <div class="text-4xl mb-4">🚗</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Parking Facilities</h3>
+                    <p class="text-sm text-gray-600">Dedicated parking space included.</p>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll delay-100">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Low Security Deposit</h3>
+                    <p class="text-sm text-gray-600">Move in with minimal upfront cost.</p>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll delay-200">
+                    <div class="text-4xl mb-4">🌿</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Community Atmosphere</h3>
+                    <p class="text-sm text-gray-600">Peaceful, friendly neighborhood.</p>
+                </div>
+                <div
+                    class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll delay-300">
+                    <div class="text-4xl mb-4">👨‍👩‍👧</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Family-Friendly</h3>
+                    <p class="text-sm text-gray-600">Managed directly by a trusted local family.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: TESTIMONIALS -->
+    <section class="py-24 bg-white overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center animate-on-scroll">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">What Our Guests Say</h2>
+            <div class="w-16 h-1 bg-gray-900 mx-auto rounded-full"></div>
+        </div>
+
+        <!-- Carousel Track Container -->
+        <div class="relative w-full overflow-hidden pb-10">
+            <!-- Fade Edges -->
+            <div
+                class="absolute top-0 left-0 w-20 md:w-40 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute top-0 right-0 w-20 md:w-40 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none">
+            </div>
+
+            <!-- Track -->
+            <div class="flex w-[200%] animate-scroll-left carousel-track gap-6 px-4">
+                <!-- Group 1 -->
+                <div class="w-[350px] md:w-[450px] flex-shrink-0 bg-gray-50 rounded-3xl p-8 border border-gray-100">
+                    <div class="text-4xl text-gray-300 font-serif leading-none mb-4">"</div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">Such a peaceful and well-maintained property.
+                        The amenities provided were exactly as described. The hosts are incredibly welcoming.</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold mr-3">
+                            R</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Rahul M.</div>
+                            <div class="text-yellow-400 text-sm">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[350px] md:w-[450px] flex-shrink-0 bg-gray-50 rounded-3xl p-8 border border-gray-100">
+                    <div class="text-4xl text-gray-300 font-serif leading-none mb-4">"</div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">Perfect location for our family. Safe, clean,
+                        and spacious. The dedicated parking space was a big plus for us.</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold mr-3">
+                            S</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Smita P.</div>
+                            <div class="text-yellow-400 text-sm">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[350px] md:w-[450px] flex-shrink-0 bg-gray-50 rounded-3xl p-8 border border-gray-100">
+                    <div class="text-4xl text-gray-300 font-serif leading-none mb-4">"</div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">Highly recommend Aparna Residency! The balcony
+                        views are refreshing and the overall community atmosphere is lovely.</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold mr-3">
+                            A</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Ankita D.</div>
+                            <div class="text-yellow-400 text-sm">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Duplicate for seamless scroll -->
+                <div class="w-[350px] md:w-[450px] flex-shrink-0 bg-gray-50 rounded-3xl p-8 border border-gray-100">
+                    <div class="text-4xl text-gray-300 font-serif leading-none mb-4">"</div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">Such a peaceful and well-maintained property.
+                        The amenities provided were exactly as described. The hosts are incredibly welcoming.</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold mr-3">
+                            R</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Rahul M.</div>
+                            <div class="text-yellow-400 text-sm">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[350px] md:w-[450px] flex-shrink-0 bg-gray-50 rounded-3xl p-8 border border-gray-100">
+                    <div class="text-4xl text-gray-300 font-serif leading-none mb-4">"</div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">Perfect location for our family. Safe, clean,
+                        and spacious. The dedicated parking space was a big plus for us.</p>
+                    <div class="flex items-center">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold mr-3">
+                            S</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Smita P.</div>
+                            <div class="text-yellow-400 text-sm">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: ENQUIRY FORM -->
+    <section id="enquiry" class="py-24 bg-white relative border-t border-gray-100">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Plan a Visit</h2>
+                <p class="text-gray-600">Fill in your details and we'll get back to you within 24 hours.</p>
+            </div>
+
+            <form id="enquiry-form"
+                class="space-y-6 bg-white p-8 sm:p-10 rounded-3xl border border-gray-200 shadow-xl shadow-gray-200/40 animate-on-scroll delay-100">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <input type="text" id="name" name="name" required
+                            class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-400"
+                            placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,15}"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-400"
+                            placeholder="+91 9876543210">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-400"
+                        placeholder="john@example.com">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Preferred Move-in
+                            Date</label>
+                        <input type="date" id="date" name="date" required
+                            class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white text-gray-900">
+                    </div>
+                    <div>
+                        <label for="duration" class="block text-sm font-medium text-gray-700 mb-1">Expected
+                            Duration</label>
+                        <select id="duration" name="duration" required
+                            class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 appearance-none">
+                            <option value="" disabled selected>Select duration</option>
+                            <option value="1 month">1 month</option>
+                            <option value="3 months">3 months</option>
+                            <option value="6 months">6 months</option>
+                            <option value="1 year">1 year</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
+                    <textarea id="message" name="message" rows="4"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-400 resize-none"
+                        placeholder="Any specific requirements?"></textarea>
+                </div>
+
+                <button type="submit"
+                    class="w-full py-4 px-6 border border-transparent rounded-xl shadow-sm text-base font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-all transform hover:-translate-y-0.5">
+                    Send Enquiry &rarr;
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- SUCCESS TOAST -->
+    <div id="toast"
+        class="fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-full shadow-2xl flex items-center space-x-3 transition-all duration-300 translate-y-20 opacity-0 z-50 pointer-events-none">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span class="font-medium">Thank you! We'll contact you soon.</span>
+    </div>
+
+    <!-- SECTION 7: CONTACT + MAP -->
+    <section id="contact" class="py-24 bg-gray-50 relative border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Left: Details -->
+                <div class="animate-on-scroll">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 tracking-tight">Find Us</h2>
+
+                    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm space-y-8">
+                        <!-- Address -->
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-gray-50 p-3 rounded-full text-gray-600 flex-shrink-0 mt-1">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-900">Address</h4>
+                                <p class="text-gray-600 mt-1">P4J3+7MQ, Basantapur, Amarda Road,<br>Odisha 756030</p>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-gray-50 p-3 rounded-full text-gray-600 flex-shrink-0 mt-1">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col space-y-2">
+                                <h4 class="text-lg font-semibold text-gray-900">Phone</h4>
+                                <a href="tel:+918249279132"
+                                    class="text-gray-600 hover:text-gray-900 transition-colors inline-flex items-center">+91
+                                    8249279132</a>
+                                <a href="tel:+919437755392"
+                                    class="text-gray-600 hover:text-gray-900 transition-colors inline-flex items-center">+91
+                                    9437755392</a>
+                                <a href="https://wa.me/918249279132?text=Hello%2C%20I%27m%20interested%20in%20Aparna%20Residency"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="mt-2 inline-flex items-center text-green-600 font-medium hover:text-green-700 transition-colors">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                    </svg>
+                                    Message on WhatsApp
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-100 pt-6">
+                            <p class="text-sm text-gray-500 font-medium mb-2">Working hours: <span
+                                    class="text-gray-900">Available 9 AM – 8 PM, All Days</span></p>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                <strong class="text-gray-900">Your Hosts:</strong> Mr. Akshay Kumar Giri (Physics
+                                Lecturer, S.R. Govt. College) & Mrs. Aparna Giri. We look forward to welcoming your
+                                family.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Map -->
+                <div
+                    class="h-[400px] w-full rounded-3xl overflow-hidden shadow-lg border border-gray-200 animate-on-scroll delay-200">
+                    <iframe src="https://maps.google.com/maps?q=21.7307152,87.1042325&z=16&output=embed" width="100%"
+                        height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" title="Aparna Residency Location">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-950 text-white py-12 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+                <div class="text-center md:text-left">
+                    <h3 class="font-serif text-xl font-semibold tracking-tight mb-2">Aparna Residency</h3>
+                    <p class="text-gray-500 text-sm">© 2026 Aparna Residency. All rights reserved.</p>
+                </div>
+
+                <div class="flex space-x-6 text-sm font-medium">
+                    <a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="#gallery" class="text-gray-400 hover:text-white transition-colors">Gallery</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <div class="text-center md:text-right text-sm text-gray-500">
+                    <p class="mb-1">Amarda Road, Balasore · +91 8249279132</p>
+                    <p>Designed with &hearts; by <a href="https://hsgiri.vercel.app" target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-gray-300 hover:text-white underline decoration-gray-600 underline-offset-4 transition-colors">Harishankar
+                            Giri</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING ELEMENTS -->
+    <!-- Back to Top -->
+    <button id="back-to-top"
+        class="fixed bottom-24 right-6 bg-gray-900 text-white p-3 rounded-full shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 hover:bg-gray-800 hover:-translate-y-1 focus:outline-none z-40"
+        aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/918249279132?text=Hello%2C%20I%27m%20interested%20in%20Aparna%20Residency" target="_blank"
+        rel="noopener noreferrer"
+        class="fixed bottom-6 right-6 bg-[#25D366] text-white p-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 z-40"
+        aria-label="Chat on WhatsApp">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- Cookie/Welcome Toast -->
+    <div id="welcome-toast"
+        class="fixed bottom-6 left-6 bg-white border border-gray-100 text-gray-800 px-5 py-4 rounded-2xl shadow-xl flex items-center justify-between max-w-sm transition-all duration-500 translate-y-32 z-40">
+        <div class="flex items-center">
+            <span class="text-2xl mr-3">🏠</span>
+            <p class="text-sm font-medium">Welcome to Aparna Residency — Scroll down to explore.</p>
+        </div>
+        <button id="close-welcome" class="ml-4 text-gray-400 hover:text-gray-600 focus:outline-none">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Navbar Scroll Effect ---
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // --- Mobile Menu Toggle ---
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // --- Intersection Observer for Animations ---
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+
+                        // Counter animation
+                        if (entry.target.querySelector('.counter') || entry.target.classList.contains('counter')) {
+                            const counters = entry.target.querySelectorAll('.counter');
+                            counters.forEach(startCounter);
+                        }
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+            // --- Counter Animation ---
+            function startCounter(counter) {
+                if (counter.classList.contains('counted')) return;
+                counter.classList.add('counted');
+
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // ms
+                const increment = target / (duration / 16); // 60fps
+                let current = 0;
+
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.innerText = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            }
+
+            // --- Gallery Generation & Lightbox ---
+            const galleryContainer = document.getElementById('gallery-container');
+            const images = [];
+            // Generate placeholders for img1 to img10
+            for (let i = 1; i <= 10; i++) {
+                images.push(`photos/img${i}.jpg`);
+            }
+
+            // Add images to masonry grid
+            images.forEach((src, idx) => {
+                const item = document.createElement('div');
+                item.className = `masonry-item rounded-xl overflow-hidden cursor-pointer relative group bg-gray-800 animate-on-scroll delay-${(idx % 3) * 100}`;
+
+                // Set fallback unsplash images if local ones fail
+                const unsplashIds = [
+                    '1600596542815-ffad4c1539a9', '1512917774080-9991f1c4c750', '1522708323590-d24dbb6b0267',
+                    '1484154218962-a197022b5858', '1497362962297-bbb472a4ca72', '1493809842364-4dd23db8b438',
+                    '1502672260266-1c1e55728329', '1560448204-e02f11c3d0e2', '1616594039964-ae69c47cb525',
+                    '1600607686527-6fb886090705'
+                ];
+                const fallbackSrc = `https://images.unsplash.com/photo-${unsplashIds[idx % unsplashIds.length]}?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`;
+
+                item.innerHTML = `
+                    <img src="${src}" alt="Property view ${idx + 1}" loading="lazy" class="w-full h-auto transform group-hover:scale-[1.03] transition-transform duration-300 ease-out brightness-90 group-hover:brightness-100" onerror="this.src='${fallbackSrc}'">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                        <svg class="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-50 group-hover:scale-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                    </div>
+                `;
+                item.addEventListener('click', () => openLightbox(idx));
+                galleryContainer.appendChild(item);
+                observer.observe(item);
+            });
+
+            // Lightbox logic
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.getElementById('lightbox-close');
+            const prevBtn = document.getElementById('lightbox-prev');
+            const nextBtn = document.getElementById('lightbox-next');
+            let currentImgIndex = 0;
+
+            function openLightbox(index) {
+                currentImgIndex = index;
+                updateLightboxImage();
+                lightbox.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+
+            function updateLightboxImage() {
+                const img = galleryContainer.children[currentImgIndex].querySelector('img');
+                // Use src from DOM which might be unsplash if original failed
+                lightboxImg.src = img.src;
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentImgIndex = (currentImgIndex - 1 + images.length) % images.length;
+                updateLightboxImage();
+            });
+
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentImgIndex = (currentImgIndex + 1) % images.length;
+                updateLightboxImage();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (lightbox.classList.contains('hidden')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') prevBtn.click();
+                if (e.key === 'ArrowRight') nextBtn.click();
+            });
+
+            // --- Form Submission & Toast ---
+            const form = document.getElementById('enquiry-form');
+            const toast = document.getElementById('toast');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Simulate Formspree POST
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = `<svg class="animate-spin h-5 w-5 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>`;
+                btn.disabled = true;
+
+                // Fake API call delay
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    form.reset();
+
+                    // Show success toast
+                    toast.classList.remove('opacity-0', 'translate-y-20');
+                    setTimeout(() => {
+                        toast.classList.add('opacity-0', 'translate-y-20');
+                    }, 4000);
+                }, 1500);
+            });
+
+            // --- Back to Top Button ---
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backToTop.classList.remove('translate-y-20', 'opacity-0');
+                    backToTop.classList.add('translate-y-0', 'opacity-100');
+                } else {
+                    backToTop.classList.add('translate-y-20', 'opacity-0');
+                    backToTop.classList.remove('translate-y-0', 'opacity-100');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // --- Welcome Toast ---
+            const welcomeToast = document.getElementById('welcome-toast');
+            const closeWelcome = document.getElementById('close-welcome');
+
+            // Show welcome toast after 1.5s
+            setTimeout(() => {
+                welcomeToast.classList.remove('translate-y-32');
+            }, 1500);
+
+            closeWelcome.addEventListener('click', () => {
+                welcomeToast.classList.add('translate-y-32');
+                // Could save to localStorage here so it doesn't show again
+            });
+        });
+    </script>
+</body>
+
+</html>
