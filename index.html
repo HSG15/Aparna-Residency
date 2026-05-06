@@ -8,9 +8,10 @@
     <meta name="theme-color" content="#C8860A">
     <meta name="description"
         content="Spacious family-friendly rental in the heart of Balasore, Odisha. 2 Bedrooms, Kitchen, Dining, Ensuite Bath, and more.">
-    
+
     <!-- Favicon Setup -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23C8860A'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='serif' fill='white'>A</text></svg>">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23C8860A'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='serif' fill='white'>A</text></svg>">
     <link rel="icon" type="image/png" sizes="32x32" href="photos/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="photos/favicon.png">
 
@@ -79,9 +80,9 @@
             background: transparent;
             transition: background 0.3s ease;
         }
-        
+
         .glass-nav.scrolled {
-            background: rgba(20, 10, 3, 0.85);
+            background: rgba(20, 10, 3, 0.90);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
@@ -94,7 +95,7 @@
             font-size: clamp(3rem, 7vw, 5.5rem);
             font-weight: 700;
             color: #FFF8F0;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
         }
 
         .animate-on-scroll {
@@ -175,6 +176,343 @@
             break-inside: avoid;
             margin-bottom: 1.5rem;
         }
+
+        /* Availability Badge */
+        .avail-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px
+        }
+
+        .avail-badge.available {
+            background: #D1FAE5;
+            color: #065F46
+        }
+
+        .avail-badge.occupied {
+            background: #FEE2E2;
+            color: #991B1B
+        }
+
+        .pulse-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            display: inline-block
+        }
+
+        .available .pulse-dot {
+            background: #22C55E;
+            animation: pulse-anim 1.5s ease-in-out infinite
+        }
+
+        .occupied .pulse-dot {
+            background: #EF4444
+        }
+
+        @keyframes pulse-anim {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.75)
+            }
+        }
+
+        /* Landmark Cards */
+        .landmark-card {
+            background: #fff;
+            border: 1px solid #f0e4d0;
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.5s ease;
+            opacity: 0;
+            transform: translateX(-30px)
+        }
+
+        .landmark-card.lm-visible {
+            opacity: 1;
+            transform: translateX(0)
+        }
+
+        .landmark-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(200, 134, 10, 0.12)
+        }
+
+        .dist-badge {
+            margin-left: auto;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            background: #fff;
+            border: 1px solid #e8d9c0;
+            border-radius: 24px;
+            padding: 36px 28px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.25s, box-shadow 0.25s
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(200, 134, 10, 0.15)
+        }
+
+        .pricing-card.popular {
+            border-color: #C8860A;
+            background: linear-gradient(135deg, #fff9f0, #fffcf7);
+            transform: scale(1.03)
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.03) translateY(-6px)
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #C8860A;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 16px;
+            border-radius: 999px;
+            letter-spacing: .05em
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            background: #fff;
+            border: 1px solid #e8d9c0;
+            border-left: 3px solid transparent;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            transition: border-color .2s, box-shadow .2s
+        }
+
+        .faq-item.open {
+            border-left-color: #C8860A;
+            box-shadow: 0 4px 20px rgba(200, 134, 10, 0.08)
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 18px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            color: #2C1A0E;
+            text-align: left;
+            font-family: inherit
+        }
+
+        .faq-icon {
+            font-size: 22px;
+            font-weight: 300;
+            color: #C8860A;
+            flex-shrink: 0;
+            transition: transform .2s;
+            line-height: 1
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease
+        }
+
+        .faq-answer-inner {
+            padding: 0 22px 18px;
+            font-size: 14px;
+            color: #8B7355;
+            line-height: 1.7
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            padding: 3px
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: #F5DEB3;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all .2s;
+            font-family: inherit
+        }
+
+        .lang-btn.active {
+            background: #C8860A;
+            color: #fff;
+            font-weight: 700
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.15)
+        }
+
+        /* Mobile Sticky Bar */
+        .mobile-sticky-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #1A0D03;
+            z-index: 50;
+            border-top: 1px solid #3a2010
+        }
+
+        @media(max-width:768px) {
+            .mobile-sticky-bar {
+                display: flex
+            }
+
+            body {
+                padding-bottom: 60px
+            }
+        }
+
+        .mobile-sticky-btn {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            color: #F5DEB3;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 500;
+            transition: background .2s;
+            border-right: 1px solid #3a2010
+        }
+
+        .mobile-sticky-btn:last-child {
+            border-right: none
+        }
+
+        .mobile-sticky-btn:active {
+            background: rgba(200, 134, 10, 0.25)
+        }
+
+        .mobile-sticky-btn .s-icon {
+            font-size: 20px;
+            line-height: 1
+        }
+
+        /* Lightbox room label + counter */
+        #lb-counter {
+            position: absolute;
+            top: 20px;
+            right: 80px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 13px;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 4px 12px;
+            border-radius: 999px;
+            pointer-events: none
+        }
+
+        #lb-room {
+            position: absolute;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 6px 18px;
+            border-radius: 999px;
+            white-space: nowrap;
+            pointer-events: none
+        }
+
+        #lightbox-img {
+            transition: opacity .2s ease
+        }
+
+        /* Floor plan */
+        .floorplan-img {
+            max-width: 800px;
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
+            cursor: zoom-in;
+            transition: transform .3s ease
+        }
+
+        .floorplan-img:hover {
+            transform: scale(1.01)
+        }
+
+        .room-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fff;
+            border: 1px solid rgba(200, 134, 10, 0.2);
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-size: 13px;
+            color: #2C1A0E;
+            margin: 4px
+        }
+
+        /* Fade-in-left for animate-on-scroll variant */
+        .animate-lm {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity .5s ease, transform .5s ease
+        }
+
+        .animate-lm.is-visible {
+            opacity: 1;
+            transform: translateX(0)
+        }
     </style>
 </head>
 
@@ -185,23 +523,32 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="font-serif text-2xl font-semibold tracking-tight text-[#F5DEB3]">Aparna
-                        Residency</a>
+                    <a href="#" aria-label="Aparna Residency Home">
+                        <img src="photos/logo.png" alt="Aparna Residency" height="40"
+                            style="height:40px;width:auto;object-fit:contain"
+                            onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<span class=\'font-serif text-2xl font-semibold tracking-tight text-[#F5DEB3]\'>Aparna Residency</span>')">
+                    </a>
                 </div>
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home"
-                        class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors">Home</a>
-                    <a href="#amenities"
-                        class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors">Amenities</a>
-                    <a href="#gallery"
-                        class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors">Gallery</a>
-                    <a href="#why-us"
-                        class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors">Why Us</a>
-                    <a href="#contact"
-                        class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors">Contact</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#home" class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors"
+                        data-en="Home" data-or="ହୋମ">Home</a>
+                    <a href="#amenities" class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors"
+                        data-en="Amenities" data-or="ସୁବିଧା">Amenities</a>
+                    <a href="#gallery" class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors"
+                        data-en="Gallery" data-or="ଗ୍ୟାଲେରୀ">Gallery</a>
+                    <a href="#why-us" class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors"
+                        data-en="Why Us" data-or="ଆମ ବିଷୟରେ">Why Us</a>
+                    <a href="#contact" class="text-sm font-medium text-[#F5DEB3] hover:text-white transition-colors"
+                        data-en="Contact" data-or="ଯୋଗାଯୋଗ">Contact</a>
+                    <div class="lang-toggle" role="group" aria-label="Language switcher">
+                        <button class="lang-btn active" id="btn-en" data-lang="en" onclick="setLang('en')">EN</button>
+                        <button class="lang-btn" id="btn-or" data-lang="or" onclick="setLang('or')"
+                            style="font-family:serif">ଓଡ଼ିଆ</button>
+                    </div>
                     <a href="#enquiry"
-                        class="inline-flex items-center justify-center px-5 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-brand-primary hover:bg-[#a66f08] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary">
+                        class="inline-flex items-center justify-center px-5 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-brand-primary hover:bg-[#a66f08] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary"
+                        data-en="Book a Visit" data-or="ପରିଦର୍ଶନ ବୁକ">
                         Book a Visit
                     </a>
                 </div>
@@ -219,7 +566,7 @@
         </div>
         <!-- Mobile Menu Drawer -->
         <div id="mobile-menu"
-            class="hidden md:hidden bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-lg absolute w-full left-0 top-16">
+            class="hidden md:hidden bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-lg absolute w-full left-0 top-20">
             <div class="px-4 pt-2 pb-6 space-y-2">
                 <a href="#home"
                     class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Home</a>
@@ -259,20 +606,25 @@
                 </svg>
                 1000 sq. ft · Family-Friendly
             </div>
-            <h1 class="hero-headline font-serif mb-6 animate-fade-in-up">
+            <h1 class="hero-headline font-serif mb-6 animate-fade-in-up" id="hero-h1" data-en="Your Home Away From Home"
+                data-or="ଆପଣଙ୍କ ଘର ପରି ଆଉ ଗୋଟିଏ ଘର">
                 Your Home Away From Home
             </h1>
-            <p class="text-lg md:text-xl text-[#F5DEB3] mb-10 max-w-2xl font-light animate-fade-in-up delay-200" style="font-weight: 300;">
+            <p class="text-lg md:text-xl text-[#F5DEB3] mb-10 max-w-2xl font-light animate-fade-in-up delay-200"
+                id="hero-sub" style="font-weight: 300;"
+                data-en="Spacious family-friendly rental in the heart of Balasore, Odisha."
+                data-or="ଓଡ଼ିଶାର ବାଲେଶ୍ୱରର ହୃଦୟସ୍ଥଳରେ ବିଶାଳ ଏବଂ ପରିବାର-ମିତ୍ରପରାୟଣ ଭଡ଼ା ବାସସ୍ଥାନ।">
                 Spacious family-friendly rental in the heart of Balasore, Odisha.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-300 w-full sm:w-auto">
-                <a href="#amenities"
-                    class="px-8 py-3.5 border border-transparent text-base font-medium rounded-full text-white bg-brand-primary hover:bg-[#a66f08] hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 w-full sm:w-auto text-center">
+                <a href="#amenities" id="btn-explore"
+                    class="px-8 py-3.5 border border-transparent text-base font-medium rounded-full text-white bg-brand-primary hover:bg-[#a66f08] hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 w-full sm:w-auto text-center"
+                    data-en="Explore Amenities" data-or="ସୁବିଧାମାନଙ୍କୁ ଅନୁସନ୍ଧାନ କରନ୍ତୁ">
                     Explore Amenities
                 </a>
-                <a href="#contact"
+                <a href="#contact" id="btn-contact-hero"
                     class="px-8 py-3.5 text-base font-medium rounded-full text-[#FFF8F0] hover:bg-white/10 hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 w-full sm:w-auto text-center backdrop-blur-sm"
-                    style="border: 2px solid #F5DEB3;">
+                    style="border: 2px solid #F5DEB3;" data-en="Contact Us" data-or="ଆମ ସହିତ ଯୋଗାଯୋଗ କରନ୍ତୁ">
                     Contact Us
                 </a>
             </div>
@@ -289,11 +641,26 @@
         </a>
     </section>
 
+    <!-- SOCIAL PROOF STRIP -->
+    <div class="w-full py-6 border-y" style="background:#FDF6EC;border-color:rgba(200,134,10,0.15)">
+        <div class="max-w-5xl mx-auto px-4 flex flex-wrap justify-center gap-6 md:gap-12">
+            <div class="flex items-center gap-2 md:gap-3 text-base md:text-lg"><span class="text-xl md:text-2xl">🏠</span><span class="proof-num font-bold text-gray-900" data-target-proof="10"
+                    data-suffix="+">10+</span><span style="color:#8B7355" class="font-medium">Families Hosted</span></div>
+            <div class="flex items-center gap-2 md:gap-3 text-base md:text-lg"><span class="text-xl md:text-2xl">⭐</span><span class="proof-num font-bold text-gray-900">4.9</span><span
+                    style="color:#8B7355" class="font-medium">Rating</span></div>
+            <div class="flex items-center gap-2 md:gap-3 text-base md:text-lg"><span class="text-xl md:text-2xl">📅</span><span class="proof-num font-bold text-gray-900">Since 2019</span><span
+                    style="color:#8B7355" class="font-medium">Trusted</span></div>
+            <div class="flex items-center gap-2 md:gap-3 text-base md:text-lg"><span class="text-xl md:text-2xl">✅</span><span class="proof-num font-bold text-gray-900">Verified</span><span
+                    style="color:#8B7355" class="font-medium">Property</span></div>
+        </div>
+    </div>
+
     <!-- SECTION 2: THE SPACE -->
     <section id="amenities" class="py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-on-scroll">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">The Space</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight" data-en="The Space"
+                    data-or="ଏହି ସ୍ଥାନ">The Space</h2>
                 <div class="w-16 h-1 bg-gray-900 mx-auto rounded-full"></div>
             </div>
 
@@ -304,28 +671,32 @@
                     <div class="text-4xl font-bold text-gray-900 mb-2 flex justify-center items-center">
                         <span class="counter" data-target="1000">0</span><span class="text-3xl">+</span>
                     </div>
-                    <div class="text-sm font-medium text-gray-500 uppercase tracking-wide">Sq. Ft. Area</div>
+                    <div class="text-sm font-medium text-gray-500 uppercase tracking-wide" data-en="Sq. Ft. Area"
+                        data-or="ବ.ଫୁ. ଆୟତନ">Sq. Ft. Area</div>
                 </div>
                 <div
                     class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:shadow-md transform hover:-translate-y-1 transition-all duration-300">
                     <div class="text-4xl font-bold text-gray-900 mb-2">
                         <span class="counter" data-target="2">0</span>
                     </div>
-                    <div class="text-sm font-medium text-gray-500 uppercase tracking-wide">Bedrooms</div>
+                    <div class="text-sm font-medium text-gray-500 uppercase tracking-wide" data-en="Bedrooms"
+                        data-or="ଶୟନ ଘର">Bedrooms</div>
                 </div>
                 <div
                     class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:shadow-md transform hover:-translate-y-1 transition-all duration-300">
                     <div class="text-4xl font-bold text-gray-900 mb-2">
                         <span class="counter" data-target="1">0</span>
                     </div>
-                    <div class="text-sm font-medium text-gray-500 uppercase tracking-wide">Ensuite Bath</div>
+                    <div class="text-sm font-medium text-gray-500 uppercase tracking-wide" data-en="Ensuite Bath"
+                        data-or="ବାଥରୁମ୍">Ensuite Bath</div>
                 </div>
                 <div
                     class="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100 hover:shadow-md transform hover:-translate-y-1 transition-all duration-300">
                     <div class="text-4xl font-bold text-gray-900 mb-2">
                         <span class="counter" data-target="1">0</span>
                     </div>
-                    <div class="text-sm font-medium text-gray-500 uppercase tracking-wide">Prayer Room</div>
+                    <div class="text-sm font-medium text-gray-500 uppercase tracking-wide" data-en="Prayer Room"
+                        data-or="ପ୍ରାର୍ଥନା ଘର">Prayer Room</div>
                 </div>
             </div>
 
@@ -343,7 +714,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-900">Two Spacious Bedrooms</h3>
+                    <h3 class="text-lg font-semibold text-gray-900" data-en="Two Spacious Bedrooms"
+                        data-or="ଦୁଇଟି ବିଶାଳ ଶୟନ ଘର">Two Spacious Bedrooms</h3>
                 </div>
                 <!-- Amenity 2 -->
                 <div
@@ -357,7 +729,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-900">Well-Equipped Kitchen</h3>
+                    <h3 class="text-lg font-semibold text-gray-900" data-en="Well-Equipped Kitchen"
+                        data-or="ସଜ୍ଜିତ ରୋଷେଇ ଘର">Well-Equipped Kitchen</h3>
                 </div>
                 <!-- Amenity 3 -->
                 <div
@@ -371,7 +744,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-900">Dining Area</h3>
+                    <h3 class="text-lg font-semibold text-gray-900" data-en="Dining Area" data-or="ଭୋଜନ ଘର">Dining Area
+                    </h3>
                 </div>
                 <!-- Amenity 4 -->
                 <div
@@ -387,7 +761,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-900">Master BR with Ensuite Bath</h3>
+                    <h3 class="text-lg font-semibold text-gray-900" data-en="Master BR with Ensuite Bath"
+                        data-or="ମୁଖ୍ୟ ଶୟନ ଘର ସହ ବାଥରୁମ୍ ">Master BR with Ensuite Bath</h3>
                 </div>
                 <!-- Amenity 5 -->
                 <div
@@ -401,7 +776,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-900">Balcony — Breathe Easy</h3>
+                    <h3 class="text-lg font-semibold text-gray-900" data-en="Balcony — Breathe Easy"
+                        data-or="ବାଲ୍‌କନି — ତାଜା ପବନ">Balcony — Breathe Easy</h3>
                 </div>
                 <!-- Amenity 6 -->
                 <div
@@ -415,7 +791,8 @@
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-900">Dedicated Worship Room</h3>
+                    <h3 class="text-lg font-semibold text-gray-900" data-en="Dedicated Worship Room"
+                        data-or="ଉପାସନା ଗୃହ">Dedicated Worship Room</h3>
                 </div>
             </div>
         </div>
@@ -425,7 +802,8 @@
     <section id="gallery" class="py-24 bg-gray-900 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-on-scroll">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Inside the Home</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight" data-en="Inside the Home"
+                    data-or="ଘର ଭିତରେ">Inside the Home</h2>
                 <div class="w-16 h-1 bg-white mx-auto rounded-full"></div>
             </div>
 
@@ -452,10 +830,12 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
         </button>
+        <div id="lb-counter" class=""></div>
         <div class="max-w-5xl max-h-[80vh] px-4">
             <img id="lightbox-img" src="" alt="Fullscreen view"
-                class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl transition-transform duration-300">
+                class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl">
         </div>
+        <div id="lb-room" class=""></div>
         <button id="lightbox-next"
             class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white p-4 focus:outline-none transition-colors"
             aria-label="Next image">
@@ -465,11 +845,92 @@
         </button>
     </div>
 
+    <!-- SECTION: FLOOR PLAN -->
+    <section id="floor-plan" class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2 tracking-tight" data-en="Floor Plan"
+                    data-or="ଫ୍ଲୋର ପ୍ଲାନ">Floor Plan</h2>
+                <p class="text-gray-500 mt-2" data-en="1000 sq. ft · Thoughtfully Designed Layout"
+                    data-or="୧୦୦୦ ବ.ଫୁ. · ୟୋଜନାବଦ୍ଧ ଜେ ଡିଜାଇନ">1000 sq. ft &middot; Thoughtfully Designed Layout</p>
+                <div class="w-16 h-1 bg-gray-900 mx-auto rounded-full mt-4"></div>
+            </div>
+            <div class="flex justify-center animate-on-scroll delay-100">
+                <img src="photos/floorplan.png" alt="Floor Plan of Aparna Residency" class="floorplan-img"
+                    id="floorplan-img" onerror="this.src='https://placehold.co/800x500/FDF6EC/C8860A?text=Floor+Plan'">
+            </div>
+            <div class="flex flex-wrap justify-center mt-8 animate-on-scroll delay-200">
+                <span class="room-pill">🛏 Master Bedroom</span>
+                <span class="room-pill">🛏 Second Bedroom</span>
+                <span class="room-pill">🍳 Kitchen</span>
+                <span class="room-pill">🛃 Main Bathroom</span>
+                <span class="room-pill">🚻 Attached Washroom</span>
+                <span class="room-pill">🍽 Dining Hall</span>
+                <span class="room-pill">🙏 Worship Room</span>
+                <span class="room-pill">🌿 Balcony &times; 2</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: NEARBY LANDMARKS -->
+    <section id="landmarks" class="py-24 bg-white border-t border-gray-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2 tracking-tight" data-en="What's Around Us"
+                    data-or="ଆଖପାଖରେ କ'ଣ ଅଛି">What's Around Us</h2>
+                <p class="text-gray-500 mt-2" data-en="Everything your family needs, minutes away."
+                    data-or="ଆପଣଙ୍କ ପରିବାରର ସବୁ ଦରକାର, କିଛି ମିନିଟ ଦୂରରେ।">Everything your family needs, minutes away.
+                </p>
+                <div class="w-16 h-1 bg-gray-900 mx-auto rounded-full mt-4"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="landmarks-grid">
+                <div class="landmark-card animate-lm" style="transition-delay:0ms">
+                    <div
+                        style="width:44px;height:44px;border-radius:50%;background:#D1FAE5;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                        🛒</div><span class="font-medium text-gray-900 flex-1">Local Market</span><span
+                        class="dist-badge" style="background:#D1FAE5;color:#065F46">250 m</span>
+                </div>
+                <div class="landmark-card animate-lm" style="transition-delay:100ms">
+                    <div
+                        style="width:44px;height:44px;border-radius:50%;background:#DBEAFE;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                        🚂</div><span class="font-medium text-gray-900 flex-1">Amarda Road Station</span><span
+                        class="dist-badge" style="background:#DBEAFE;color:#1E40AF">350 m</span>
+                </div>
+                <div class="landmark-card animate-lm" style="transition-delay:200ms">
+                    <div
+                        style="width:44px;height:44px;border-radius:50%;background:#FEE2E2;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                        🏥</div><span class="font-medium text-gray-900 flex-1">Amarda Road PHC</span><span
+                        class="dist-badge" style="background:#FEE2E2;color:#991B1B">500 m</span>
+                </div>
+                <div class="landmark-card animate-lm" style="transition-delay:300ms">
+                    <div
+                        style="width:44px;height:44px;border-radius:50%;background:#FEF9C3;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                        🏫</div><span class="font-medium text-gray-900 flex-1">School / College</span><span
+                        class="dist-badge" style="background:#FEF9C3;color:#92400E">850 m</span>
+                </div>
+                <div class="landmark-card animate-lm" style="transition-delay:400ms">
+                    <div
+                        style="width:44px;height:44px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                        🛣</div><span class="font-medium text-gray-900 flex-1">NH-16 Highway</span><span
+                        class="dist-badge" style="background:#F3F4F6;color:#374151">1.5 km</span>
+                </div>
+                <div class="landmark-card animate-lm" style="transition-delay:500ms">
+                    <div
+                        style="width:44px;height:44px;border-radius:50%;background:#DBEAFE;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">
+                        🚉</div><span class="font-medium text-gray-900 flex-1">Basta Railway Station</span><span
+                        class="dist-badge" style="background:#DBEAFE;color:#1E40AF">8.9 km</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- SECTION 4: WHY CHOOSE US -->
     <section id="why-us" class="py-24 bg-gray-50 relative border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-on-scroll">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Why Families Choose Aparna
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight"
+                    data-en="Why Families Choose Aparna Residency"
+                    data-or="କାହିଁକି ପରିବାରମାନେ ଅପର୍ଣା ରେସିଡେନ୍ସିକୁ ଚୟନ କରନ୍ତି?">Why Families Choose Aparna
                     Residency</h2>
                 <div class="w-16 h-1 bg-gray-900 mx-auto rounded-full"></div>
             </div>
@@ -479,59 +940,148 @@
                 <div
                     class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll">
                     <div class="text-4xl mb-4">📍</div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Prime Location</h3>
-                    <p class="text-sm text-gray-600">Walking distance to key services in Balasore.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2" data-en="Prime Location"
+                        data-or="ପ୍ରମୁଖ ଅବସ୍ଥାନ">Prime Location</h3>
+                    <p class="text-sm text-gray-600" data-en="Walking distance to key services in Balasore."
+                        data-or="ବାଲେଶ୍ୱରର ମୁଖ୍ୟ ସେବାମାନଙ୍କୁ ପଦଯାତ୍ରା ଦୂରତାରେ ଅବସ୍ଥିତ।">Walking distance to key services
+                        in Balasore.</p>
                 </div>
                 <div
                     class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll delay-100">
                     <div class="text-4xl mb-4">🏡</div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Modern Amenities</h3>
-                    <p class="text-sm text-gray-600">Fully equipped for comfortable family living.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2" data-en="Modern Amenities"
+                        data-or="ଆଧୁନିକ ସୁବିଧା">Modern Amenities</h3>
+                    <p class="text-sm text-gray-600" data-en="Fully equipped for comfortable family living."
+                        data-or="ପରିବାର ସହ ସୁବିଧାଜନକ ବସୋବାସ ପାଇଁ ସମ୍ପୂର୍ଣ ସଜ୍ଜିତ।">Fully equipped for comfortable family
+                        living.</p>
                 </div>
                 <div
                     class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll delay-200">
                     <div class="text-4xl mb-4">💰</div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Affordable Pricing</h3>
-                    <p class="text-sm text-gray-600">Transparent rent, no hidden charges.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2" data-en="Affordable Pricing"
+                        data-or="ସସ୍ତା ମୂଲ୍ୟ">Affordable Pricing</h3>
+                    <p class="text-sm text-gray-600" data-en="Transparent rent, no hidden charges."
+                        data-or="ସ୍ପଷ୍ଟ ଭଡ଼ା ବ୍ୟବସ୍ଥା, କୌଣସି ଲୁଚା ଖର୍ଚ୍ଚ ନାହିଁ।">Transparent rent, no hidden charges.
+                    </p>
                 </div>
                 <div
                     class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll delay-300">
                     <div class="text-4xl mb-4">🔒</div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Safety & Security</h3>
-                    <p class="text-sm text-gray-600">24/7 CCTV camera coverage throughout.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2" data-en="Safety &amp; Security"
+                        data-or="ସୁରକ୍ଷା ଏବଂ ନିରାପତ୍ତା">Safety & Security</h3>
+                    <p class="text-sm text-gray-600" data-en="24/7 CCTV camera coverage throughout."
+                        data-or="ସମ୍ପୂର୍ଣ ପ୍ରାଙ୍ଗଣରେ ୨୦ ଘଣ୍ଟା ସିସିଟିଭି ନିରାକ୍ଷଣ।">24/7 CCTV camera coverage throughout.
+                    </p>
                 </div>
                 <div
                     class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll">
                     <div class="text-4xl mb-4">🚗</div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Parking Facilities</h3>
-                    <p class="text-sm text-gray-600">Dedicated parking space included.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2" data-en="Parking Facilities"
+                        data-or="ପାର୍କିଂ ସୁବିଧା">Parking Facilities</h3>
+                    <p class="text-sm text-gray-600" data-en="Dedicated parking space included."
+                        data-or="ନିର୍ଦ୍ଦିଷ୍ଟ ପାର୍କିଂ ସ୍ଥାନ ଉପଲବ୍ଧ।">Dedicated parking space included.</p>
                 </div>
                 <div
                     class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll delay-100">
                     <div class="text-4xl mb-4">🤝</div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Low Security Deposit</h3>
-                    <p class="text-sm text-gray-600">Move in with minimal upfront cost.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2" data-en="Low Security Deposit"
+                        data-or="କମ୍ ସୁରକ୍ଷା ଜମାରାଶି">Low Security Deposit</h3>
+                    <p class="text-sm text-gray-600" data-en="Move in with minimal upfront cost."
+                        data-or="ଅତ୍ୟନ୍ତ କମ୍ ଆରମ୍ଭିକ ଖର୍ଚ୍ଚରେ ରହିବାର ସୁବିଧା।">Move in with minimal upfront cost.</p>
                 </div>
                 <div
                     class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll delay-200">
                     <div class="text-4xl mb-4">🌿</div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Community Atmosphere</h3>
-                    <p class="text-sm text-gray-600">Peaceful, friendly neighborhood.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2" data-en="Community Atmosphere"
+                        data-or="ସମୁଦାୟ ମାହୋଲ">Community Atmosphere</h3>
+                    <p class="text-sm text-gray-600" data-en="Peaceful, friendly neighborhood."
+                        data-or="ଶାନ୍ତ, ସ୍ନେହଶୀଳ ଏବଂ ମିତ୍ରପରାୟଣ ପଡ଼ୋଶ।">Peaceful, friendly neighborhood.</p>
                 </div>
                 <div
                     class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 animate-on-scroll delay-300">
                     <div class="text-4xl mb-4">👨‍👩‍👧</div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Family-Friendly</h3>
-                    <p class="text-sm text-gray-600">Managed directly by a trusted local family.</p>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2" data-en="Family-Friendly"
+                        data-or="ପରିବାର-ମିତ୍ରପରାୟଣ">Family-Friendly</h3>
+                    <p class="text-sm text-gray-600" data-en="Managed directly by a trusted local family."
+                        data-or="ବିଶ୍ୱସନୀୟ ସ୍ଥାନୀୟ ପରିବାର ଦ୍ୱାରା ପରିଚାଳିତ।">Managed directly by a trusted local family.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: PRICING -->
+    <section id="pricing" class="py-24 bg-white border-t border-gray-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2 tracking-tight"
+                    data-en="Simple, Transparent Pricing" data-or="ସରଳ, ସ୍ୱଚ୍ଛ ମୂଲ୍ୟ">Simple, Transparent Pricing
+                </h2>
+                <p class="text-gray-500 mt-2" data-en="No hidden charges. What you see is what you pay."
+                    data-or="କୌଣସି ଲୁଚା ଖର୍ଚ୍ଚ ନାହିଁ। ଯାହା ଦେଖୁଛନ୍ତି, ତାହାହିଁ ଦେବେ।">No hidden charges. What you see is
+                    what you pay.</p>
+                <div class="w-16 h-1 bg-gray-900 mx-auto rounded-full mt-4"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center animate-on-scroll delay-100">
+                <div class="pricing-card">
+                    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2" data-en="Short Stay"
+                        data-or="ଅଳ୍ପ ସମୟ">Short Stay</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1" data-en="1–2 Months" data-or="୧–୨ ମାସ">1&ndash;2
+                        Months</h3>
+                    <p class="text-sm text-gray-500 mb-6" data-en="Ideal for work / transit stays"
+                        data-or="କାମ / ଯାତ୍ରା ପାଇଁ ଆଦର୍ଶ">Ideal for work / transit stays</p>
+                    <p class="text-2xl font-bold text-gray-900 mb-6" data-en="Contact for Pricing"
+                        data-or="ମୂଲ୍ୟ ଜାଣିବାକୁ ଯୋଗାୟୋଗ କରନ୍ତୁ">Contact for Pricing</p>
+                    <a href="https://wa.me/918249279132?text=Hi%2C+short+stay+enquiry" target="_blank"
+                        rel="noopener noreferrer"
+                        class="block w-full py-3 px-4 rounded-xl text-sm font-semibold text-white text-center hover:-translate-y-0.5 transition-all"
+                        style="background:#25D366">💬 WhatsApp Us</a>
+                </div>
+                <div class="pricing-card">
+                    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2" data-en="Monthly"
+                        data-or="ମାସିକ">Monthly</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1" data-en="3–6 Months" data-or="୩–୬ ମାସ">3&ndash;6
+                        Months</h3>
+                    <p class="text-sm text-gray-500 mb-6" data-en="Ideal for families settling in"
+                        data-or="ପରିବାର ବସ୍ତି ପାଇଁ ଆଦର୍ଶ">Ideal for families settling in</p>
+                    <p class="text-2xl font-bold text-gray-900 mb-6" data-en="Contact for Pricing"
+                        data-or="ମୂଲ୍ୟ ଜାଣିବାକୁ ଯୋଗାୟୋଗ କରନ୍ତୁ">Contact for Pricing</p>
+                    <a href="https://wa.me/918249279132?text=Hi%2C+monthly+stay+enquiry" target="_blank"
+                        rel="noopener noreferrer"
+                        class="block w-full py-3 px-4 rounded-xl text-sm font-semibold text-white text-center hover:-translate-y-0.5 transition-all"
+                        style="background:#25D366">💬 WhatsApp Us</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge" data-en="⭐ POPULAR" data-or="⭐ ଲୋକପ୍ରିୟ">⭐ POPULAR</div>
+                    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2" data-en="Long Term"
+                        data-or="ଦୀର୍ଘ ମିଆଦ">Long Term</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-1" data-en="1 Year+" data-or="୧ ବର୍ଷ+">1 Year+</h3>
+                    <p class="text-sm text-gray-500 mb-6" data-en="Best value, lowest monthly cost"
+                        data-or="ସର୍ବୋତ୍ତମ ମୂଲ୍ୟ, କମ୍ ମାସିକ ଖର୍ଚ୍ଚ">Best value, lowest monthly cost</p>
+                    <p class="text-2xl font-bold mb-6" style="color:#C8860A" data-en="Contact for Pricing"
+                        data-or="ମୂଲ୍ୟ ଜାଣିବାକୁ ଯୋଗାୟୋଗ କରନ୍ତୁ">Contact for Pricing</p>
+                    <a href="https://wa.me/918249279132?text=Hi%2C+long+term+stay+enquiry" target="_blank"
+                        rel="noopener noreferrer"
+                        class="block w-full py-3 px-4 rounded-xl text-sm font-semibold text-white text-center hover:-translate-y-0.5 transition-all"
+                        style="background:#C8860A">💬 WhatsApp Us</a>
+                </div>
+            </div>
+            <div class="mt-8 flex justify-center animate-on-scroll delay-200">
+                <div class="inline-flex items-center gap-3 px-6 py-3 rounded-2xl text-sm font-medium"
+                    style="background:#FFF4E0;color:#C8860A;border:1px solid rgba(200,134,10,0.2)">
+                    <span>🔐</span><span data-en="Security Deposit: Equivalent to 1 month rent only"
+                        data-or="ସୁରକ୍ଷା ଜମାରାଶି: ମାତ୍ର ୧ ମାସ ଭଡ଼ା ସମାନ">Security Deposit: Equivalent to <strong>1 month
+                            rent only</strong></span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SECTION 5: TESTIMONIALS -->
-    <section class="py-24 bg-white overflow-hidden relative">
+    <section id="testimonials" class="py-24 bg-white overflow-hidden relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center animate-on-scroll">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">What Our Guests Say</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight" data-en="What Our Guests Say"
+                data-or="ଆମ ଅତିଥିମାନେ କ'ଣ କହୁଛନ୍ତି">What Our Guests Say</h2>
             <div class="w-16 h-1 bg-gray-900 mx-auto rounded-full"></div>
         </div>
 
@@ -550,42 +1100,54 @@
                 <!-- Group 1 -->
                 <div class="w-[350px] md:w-[450px] flex-shrink-0 bg-gray-50 rounded-3xl p-8 border border-gray-100">
                     <div class="text-4xl text-gray-300 font-serif leading-none mb-4">"</div>
-                    <p class="text-gray-700 italic mb-6 leading-relaxed">Such a peaceful and well-maintained property.
+                    <p class="text-gray-700 italic mb-6 leading-relaxed"
+                        data-en="Such a peaceful and well-maintained property. The amenities provided were exactly as described. The hosts are incredibly welcoming."
+                        data-or="ଏହି ସମ୍ପତ୍ତିଟି ବହୁତ ଶାନ୍ତ ଏବଂ ଭଲଭାବେ ରକ୍ଷଣାବେକ୍ଷଣ କରାୟାଛି। ମାଲିକମାନେ ବହୁତ ସ୍ନେହଶୀଳ ଏବଂ ଆତିଥ୍ୟଶୀଳ।">
+                        Such a peaceful and well-maintained property.
                         The amenities provided were exactly as described. The hosts are incredibly welcoming.</p>
                     <div class="flex items-center">
                         <div
                             class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold mr-3">
                             R</div>
                         <div>
-                            <div class="font-semibold text-gray-900">Rahul M.</div>
+                            <div class="font-semibold text-gray-900" data-en="Rahul M." data-or="ରାହୁଲ ଏମ୍।">Rahul M.
+                            </div>
                             <div class="text-yellow-400 text-sm">★★★★★</div>
                         </div>
                     </div>
                 </div>
                 <div class="w-[350px] md:w-[450px] flex-shrink-0 bg-gray-50 rounded-3xl p-8 border border-gray-100">
                     <div class="text-4xl text-gray-300 font-serif leading-none mb-4">"</div>
-                    <p class="text-gray-700 italic mb-6 leading-relaxed">Perfect location for our family. Safe, clean,
+                    <p class="text-gray-700 italic mb-6 leading-relaxed"
+                        data-en="Perfect location for our family. Safe, clean, and spacious. The dedicated parking space was a big plus for us."
+                        data-or="ଆମ ପରିବାର ପାଇଁ ଏହା ସମ୍ପୂର୍ଣ ଉପୟୁକ୍ତ ସ୍ଥାନ। ନିରାପଦ, ପରିଷ୍କାର ଏବଂ ବିଶାଳ। ନିର୍ଦ୍ଦିଷ୍ଟ ପାର୍କିଂ ସୁବିଧା ଆମ ପାଇଁ ବଡ଼ ଲାଭ ଥିଲା।">
+                        Perfect location for our family. Safe, clean,
                         and spacious. The dedicated parking space was a big plus for us.</p>
                     <div class="flex items-center">
                         <div
                             class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold mr-3">
                             S</div>
                         <div>
-                            <div class="font-semibold text-gray-900">Smita P.</div>
+                            <div class="font-semibold text-gray-900" data-en="Smita P." data-or="ସ୍ମିତା ପି।">Smita P.
+                            </div>
                             <div class="text-yellow-400 text-sm">★★★★★</div>
                         </div>
                     </div>
                 </div>
                 <div class="w-[350px] md:w-[450px] flex-shrink-0 bg-gray-50 rounded-3xl p-8 border border-gray-100">
                     <div class="text-4xl text-gray-300 font-serif leading-none mb-4">"</div>
-                    <p class="text-gray-700 italic mb-6 leading-relaxed">Highly recommend Aparna Residency! The balcony
+                    <p class="text-gray-700 italic mb-6 leading-relaxed"
+                        data-en="Highly recommend Aparna Residency! The balcony views are refreshing and the overall community atmosphere is lovely."
+                        data-or="ଅପର୍ଣା ରେସିଡେନ୍ସିକୁ ମୁଁ ଅତ୍ୟନ୍ତ ସୁପାରିଶ କରେ! ବାଲ୍‌କନିରୁ ଦୃଶ୍ୟ ବହୁତ ସୁସ୍ତିଦାୟକ ଏବଂ ସମୁଦାୟର ପରିବେଶ ମଧ୍ୟ ବହୁତ ମନୋହର।">
+                        Highly recommend Aparna Residency! The balcony
                         views are refreshing and the overall community atmosphere is lovely.</p>
                     <div class="flex items-center">
                         <div
                             class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold mr-3">
                             A</div>
                         <div>
-                            <div class="font-semibold text-gray-900">Ankita D.</div>
+                            <div class="font-semibold text-gray-900" data-en="Ankita D." data-or="ଅଙ୍କିତା ଡି।">Ankita D.
+                            </div>
                             <div class="text-yellow-400 text-sm">★★★★★</div>
                         </div>
                     </div>
@@ -593,28 +1155,36 @@
                 <!-- Duplicate for seamless scroll -->
                 <div class="w-[350px] md:w-[450px] flex-shrink-0 bg-gray-50 rounded-3xl p-8 border border-gray-100">
                     <div class="text-4xl text-gray-300 font-serif leading-none mb-4">"</div>
-                    <p class="text-gray-700 italic mb-6 leading-relaxed">Such a peaceful and well-maintained property.
+                    <p class="text-gray-700 italic mb-6 leading-relaxed"
+                        data-en="Such a peaceful and well-maintained property. The amenities provided were exactly as described. The hosts are incredibly welcoming."
+                        data-or="ଏହି ସମ୍ପତ୍ତିଟି ବହୁତ ଶାନ୍ତ ଏବଂ ଭଲଭାବେ ରକ୍ଷଣାବେକ୍ଷଣ କରାୟାଛି। ମାଲିକମାନେ ବହୁତ ସ୍ନେହଶୀଳ ଏବଂ ଆତିଥ୍ୟଶୀଳ।">
+                        Such a peaceful and well-maintained property.
                         The amenities provided were exactly as described. The hosts are incredibly welcoming.</p>
                     <div class="flex items-center">
                         <div
                             class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold mr-3">
                             R</div>
                         <div>
-                            <div class="font-semibold text-gray-900">Rahul M.</div>
+                            <div class="font-semibold text-gray-900" data-en="Rahul M." data-or="ରାହୁଲ ଏମ୍।">Rahul M.
+                            </div>
                             <div class="text-yellow-400 text-sm">★★★★★</div>
                         </div>
                     </div>
                 </div>
                 <div class="w-[350px] md:w-[450px] flex-shrink-0 bg-gray-50 rounded-3xl p-8 border border-gray-100">
                     <div class="text-4xl text-gray-300 font-serif leading-none mb-4">"</div>
-                    <p class="text-gray-700 italic mb-6 leading-relaxed">Perfect location for our family. Safe, clean,
+                    <p class="text-gray-700 italic mb-6 leading-relaxed"
+                        data-en="Perfect location for our family. Safe, clean, and spacious. The dedicated parking space was a big plus for us."
+                        data-or="ଆମ ପରିବାର ପାଇଁ ଏହା ସମ୍ପୂର୍ଣ ଉପୟୁକ୍ତ ସ୍ଥାନ। ନିରାପଦ, ପରିଷ୍କାର ଏବଂ ବିଶାଳ।">Perfect
+                        location for our family. Safe, clean,
                         and spacious. The dedicated parking space was a big plus for us.</p>
                     <div class="flex items-center">
                         <div
                             class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-bold mr-3">
                             S</div>
                         <div>
-                            <div class="font-semibold text-gray-900">Smita P.</div>
+                            <div class="font-semibold text-gray-900" data-en="Smita P." data-or="ସ୍ମିତା ପି।">Smita P.
+                            </div>
                             <div class="text-yellow-400 text-sm">★★★★★</div>
                         </div>
                     </div>
@@ -627,43 +1197,51 @@
     <section id="enquiry" class="py-24 bg-white relative border-t border-gray-100">
         <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 animate-on-scroll">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Plan a Visit</h2>
-                <p class="text-gray-600">Fill in your details and we'll get back to you within 24 hours.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight" data-en="Plan a Visit"
+                    data-or="ପରିଦର୍ଶନ ପରିକଳ୍ପନା କରନ୍ତୁ">Plan a Visit</h2>
+                <p class="text-gray-600" data-en="Fill in your details and we'll get back to you within 24 hours."
+                    data-or="ଆପଣଙ୍କ ବିବରଣ ପୂରଣ କରନ୍ତୁ ଏବଂ ଆମେ ୨୦ ଘଣ୍ଟା ଭିତରେ ସମ୍ପର୍କ କରିବୁ।">Fill in your details and
+                    we'll get back to you within 24 hours.</p>
             </div>
 
             <form id="enquiry-form"
                 class="space-y-6 bg-white p-8 sm:p-10 rounded-3xl border border-gray-200 shadow-xl shadow-gray-200/40 animate-on-scroll delay-100">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-en="Full Name"
+                            data-or="ପୂର୍ଣ ନାମ">Full Name</label>
                         <input type="text" id="name" name="name" required
                             class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-400"
-                            placeholder="John Doe">
+                            data-ph-en="John Doe" data-ph-or="ପୂର୍ଣ ନାମ" placeholder="John Doe">
                     </div>
                     <div>
-                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1" data-en="Phone Number"
+                            data-or="ଫୋନ ନମ୍ବର">Phone Number</label>
                         <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,15}"
                             class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-400"
-                            placeholder="+91 9876543210">
+                            data-ph-en="+91 9876543210" data-ph-or="+91 9876543210" placeholder="+91 9876543210">
                     </div>
                 </div>
 
                 <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1" data-en="Email Address"
+                        data-or="ଇ-ମେଲ୍ ଠିକଣା">Email Address</label>
                     <input type="email" id="email" name="email" required
                         class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-400"
-                        placeholder="john@example.com">
+                        data-ph-en="john@example.com" data-ph-or="john@example.com" placeholder="john@example.com">
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Preferred Move-in
+                        <label for="date" class="block text-sm font-medium text-gray-700 mb-1"
+                            data-en="Preferred Move-in Date" data-or="ପସନ୍ଦର ପ୍ରବେଶ ତାରିଖ">Preferred Move-in
                             Date</label>
                         <input type="date" id="date" name="date" required
                             class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white text-gray-900">
                     </div>
                     <div>
-                        <label for="duration" class="block text-sm font-medium text-gray-700 mb-1">Expected
+                        <label for="duration" class="block text-sm font-medium text-gray-700 mb-1"
+                            data-en="Expected Duration" data-or="ଆଶାନୁରୂପ ସମୟସୀମା">Expected
                             Duration</label>
                         <select id="duration" name="duration" required
                             class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 appearance-none">
@@ -678,14 +1256,17 @@
                 </div>
 
                 <div>
-                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1"
+                        data-en="Message (Optional)" data-or="ସନ୍ଦେଶ (ଐଚ୍ଛିକ)">Message (Optional)</label>
                     <textarea id="message" name="message" rows="4"
                         class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gray-900 focus:border-transparent outline-none transition-all bg-gray-50 focus:bg-white text-gray-900 placeholder-gray-400 resize-none"
+                        data-ph-en="Any specific requirements?" data-ph-or="ଆପଣଙ୍କ କୌଣସି ବିଶେଷ ଆବଶ୍ୟକତା ଅଛି କି?"
                         placeholder="Any specific requirements?"></textarea>
                 </div>
 
                 <button type="submit"
-                    class="w-full py-4 px-6 border border-transparent rounded-xl shadow-sm text-base font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-all transform hover:-translate-y-0.5">
+                    class="w-full py-4 px-6 border border-transparent rounded-xl shadow-sm text-base font-semibold text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-all transform hover:-translate-y-0.5"
+                    data-en="Send Enquiry →" data-or="ଅନୁସନ୍ଧାନ ପଠାନ୍ତୁ →">
                     Send Enquiry &rarr;
                 </button>
             </form>
@@ -698,14 +1279,20 @@
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
         </svg>
-        <span class="font-medium">Thank you! We'll contact you soon.</span>
+        <span class="font-medium" data-en="Thank you! We'll contact you soon."
+            data-or="ଧନ୍ୟବାଦ! ଆମେ ଶୀଘ୍ର ସମ୍ପର୍କ କରିବୁ।">Thank you! We'll contact you soon.</span>
     </div>
 
     <!-- SECTION 7: CONTACT + MAP -->
     <section id="contact" class="py-24 bg-gray-50 relative border-t border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="animate-on-scroll mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">Find Us</h2>
+                <div class="avail-badge available" id="avail-badge"><span class="pulse-dot"></span><span
+                        data-en=" Currently Available &mdash; Ready to Move In"
+                        data-or=" ସମ୍ପ୍ରତି ଉପଲବ୍ଧ — ପ୍ରବେଶ ପାଇଁ ପ୍ରସ୍ତୁତ"> Currently Available
+                        &mdash; Ready to Move In</span></div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight" data-en="Find Us"
+                    data-or="ଆମକୁ ଖୋଜନ୍ତୁ">Find Us</h2>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
 
@@ -724,7 +1311,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="text-lg font-semibold text-gray-900">Address</h4>
+                                <h4 class="text-lg font-semibold text-gray-900" data-en="Address" data-or="ଠିକଣା">
+                                    Address</h4>
                                 <p class="text-gray-600 mt-1">P4J3+7MQ, Basantapur, Amarda Road,<br>Odisha 756030</p>
                             </div>
                         </div>
@@ -739,7 +1327,7 @@
                                 </svg>
                             </div>
                             <div class="flex flex-col space-y-2">
-                                <h4 class="text-lg font-semibold text-gray-900">Phone</h4>
+                                <h4 class="text-lg font-semibold text-gray-900" data-en="Phone" data-or="ଫୋନ">Phone</h4>
                                 <a href="tel:+918249279132"
                                     class="text-gray-600 hover:text-gray-900 transition-colors inline-flex items-center">+91
                                     8249279132</a>
@@ -759,8 +1347,11 @@
                         </div>
 
                         <div class="border-t border-gray-100 pt-6">
-                            <p class="text-sm text-gray-500 font-medium mb-2">Working hours: <span
-                                    class="text-gray-900">Available 9 AM – 8 PM, All Days</span></p>
+                            <p class="text-sm text-gray-500 font-medium mb-2"><span data-en="Working hours:"
+                                    data-or="କାର୍ୟ ସମୟ:">Working hours:</span> <span class="text-gray-900"
+                                    data-en="Available 9 AM – 8 PM, All Days"
+                                    data-or="ସକାଳ ୯ ଟାରୁ ରାତ୍ରି ୫ ଟା ଯାଯାନ୍ତୁ, ସମସ୍ତ ଦିନ">Available 9 AM – 8 PM, All
+                                    Days</span></p>
                             <p class="text-sm text-gray-600 leading-relaxed">
                                 <strong class="text-gray-900">Your Hosts:</strong> Mr. Akshay Kumar Giri (Physics
                                 Lecturer, S.R. Govt. College) & Mrs. Aparna Giri. We look forward to welcoming your
@@ -783,6 +1374,105 @@
         </div>
     </section>
 
+    <!-- SECTION: FAQ -->
+    <section id="faq" class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2 tracking-tight"
+                    data-en="Frequently Asked Questions" data-or="ସାଧାରଣ ପ୍ରଶ୍ନ">Frequently Asked Questions</h2>
+                <div class="w-16 h-1 bg-gray-900 mx-auto rounded-full mt-4"></div>
+            </div>
+            <div class="animate-on-scroll delay-100 grid grid-cols-1 md:grid-cols-2 gap-6 items-start" id="faq-list">
+                <div class="faq-item"><button class="faq-question"><span data-en="Is parking available for tenants?"
+                            data-or="ଭଡ଼ାଟିଆଙ୍କ ପାଇଁ ପାର୍କିଂ ସୁବିଧା ଅଛି କି?">Is parking available for
+                            tenants?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner"
+                            data-en="Yes, dedicated parking space is provided for all tenants at no extra charge."
+                            data-or="ହଁ, ସମସ୍ତ ଭଡ଼ାଟିଆଙ୍କ ପାଇଁ ଅତିରିକ୍ତ ଶୁଳ୍କ ବିନା ନିର୍ଦ୍ଦିଷ୍ଟ ପାର୍କିଂ ସ୍ଥାନ ଦିଆଯାଇଛି।">
+                            Yes, dedicated parking space is provided for all tenants at no extra charge.</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question"><span data-en="Are pets allowed in the property?"
+                            data-or="ଏଠାରେ ପ୍ରାଣୀ ପାଳନ କରିବାକୁ ଅନୁମତି ମିଳେ କି?">Are pets allowed in the
+                            property?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner"
+                            data-en="Yes, well-behaved pets are welcome. Please inform us in advance."
+                            data-or="ହଁ, ଶିଷ୍ଟ ଏବଂ ଶାନ୍ତ ପ୍ରକୃତିର ପ୍ରାଣୀମାନଙ୍କୁ ଅନୁମତି ମିଳେ। ଦୟାକରି ପୂର୍ବରୁ ଆମକୁ ଜଣାଇବେ।">
+                            Yes, well-behaved pets are welcome. Please inform us in advance.</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question"><span data-en="Is the kitchen fully equipped?"
+                            data-or="ରୋଷେଇ ଘରଟି ସମ୍ପୂର୍ଣ୍ଣ ସଜ୍ଜିତ କି?">Is the kitchen fully equipped?</span><span
+                            class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner"
+                            data-en="Yes, the kitchen is well-equipped with all essential appliances and fittings for comfortable cooking."
+                            data-or="ହଁ, ସୁବିଧାଜନକ ରାନ୍ଧଣା ପାଇଁ ଆବଶ୍ୟକ ସମସ୍ତ ଯନ୍ତ୍ରପାତି ଏବଂ ବ୍ୟବସ୍ଥା ସହିତ ରୋଷେଇ ଘରଟି ସଜ୍ଜିତ ଅଛି।">
+                            Yes, the kitchen is well-equipped with all essential appliances and fittings for comfortable
+                            cooking.</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question"><span data-en="Are short-term stays accepted?"
+                            data-or="ଅଲ୍ପ ସମୟ ପାଇଁ ରହିବାକୁ ଅନୁମତି ମିଳେ କି?">Are short-term stays accepted?</span><span
+                            class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner"
+                            data-en="Yes, we welcome both short-term and long-term stays. Contact us to discuss your requirements."
+                            data-or="ହଁ, ଆମେ ଅଲ୍ପ ସମୟ ଏବଂ ଦୀର୍ଘ ସମୟ ଦୁହିଁ ପ୍ରକାରର ବସୋବାସକୁ ସ୍ୱାଗତ କରୁଛୁ। ଆପଣଙ୍କ ଆବଶ୍ୟକତା ନେଇ ଆମ ସହିତ ଯୋଗାଯୋଗ କରନ୍ତୁ।">
+                            Yes, we welcome both short-term and long-term stays. Contact us to discuss your
+                            requirements.</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question"><span data-en="What documents are required to rent?"
+                            data-or="ଭଡ଼ା ନେବା ପାଇଁ କେଉଁ କାଗଜପତ୍ର ଆବଶ୍ୟକ?">What documents are required to
+                            rent?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner"
+                            data-en="Standard ID proof and address proof are required. The process is simple and hassle-free."
+                            data-or="ସାଧାରଣ ପରିଚୟ ପତ୍ର ଏବଂ ଠିକଣା ପ୍ରମାଣପତ୍ର ଆବଶ୍ୟକ। ପ୍ରକ୍ରିୟାଟି ସରଳ ଏବଂ ଅସୁବିଧାହୀନ।">
+                            Standard ID proof and address proof are required. The process is simple and hassle-free.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question"><span data-en="Is there CCTV security coverage?"
+                            data-or="ଏଠାରେ ସିସିଟିଭି ସୁରକ୍ଷା ବ୍ୟବସ୍ଥା ଅଛି କି?">Is there CCTV security
+                            coverage?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner"
+                            data-en="Yes, CC cameras are installed throughout the property for 24/7 safety and security."
+                            data-or="ହଁ, ସମ୍ପୂର୍ଣ୍ଣ ପ୍ରାଙ୍ଗଣରେ ୨୪ ଘଣ୍ଟା ସୁରକ୍ଷା ପାଇଁ ସିସିଟିଭି କ୍ୟାମେରା ସ୍ଥାପିତ ଅଛି।">
+                            Yes, CC cameras are installed throughout the property for 24/7 safety and security.</div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question"><span data-en="How much is the security deposit?"
+                            data-or="ସୁରକ୍ଷା ଜମାରାଶି କେତେ?">How much is the security deposit?</span><span
+                            class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner"
+                            data-en="Security deposit is equivalent to just 1 month's rent — one of the lowest in the area."
+                            data-or="ସୁରକ୍ଷା ଜମାରାଶି କେବଳ ୧ ମାସର ଭଡ଼ା ସମାନ — ଏହା ଏହି ଅଞ୍ଚଳରେ ସବୁଠାରୁ କମ୍ ମଧ୍ୟରୁ ଗୋଟିଏ।">
+                            Security deposit is equivalent to just 1 month's rent &mdash; one of the lowest in the area.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item"><button class="faq-question"><span
+                            data-en="Is the property suitable for families with children?"
+                            data-or="ଏହି ସମ୍ପତ୍ତିଟି ଶିଶୁ ସହ ଥିବା ପରିବାର ପାଇଁ ଉପଯୁକ୍ତ କି?">Is the property suitable for
+                            families with children?</span><span class="faq-icon">+</span></button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner"
+                            data-en="Yes, absolutely. Aparna Residency is designed and managed specifically for families, with a safe and peaceful environment."
+                            data-or="ହଁ, ନିଶ୍ଚିତ ଭାବେ। ଏହା ପରିବାରମାନଙ୍କ ପାଇଁ ବିଶେଷ ଭାବେ ଡିଜାଇନ ଏବଂ ପରିଚାଳିତ, ଯେଉଁଠାରେ ନିରାପଦ ଏବଂ ଶାନ୍ତ ପରିବେଶ ମିଳେ।">
+                            Yes, absolutely. Aparna Residency is designed and managed specifically for families, with a
+                            safe and peaceful environment.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="bg-gray-950 text-white py-12 border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -793,9 +1483,12 @@
                 </div>
 
                 <div class="flex space-x-6 text-sm font-medium">
-                    <a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a>
-                    <a href="#gallery" class="text-gray-400 hover:text-white transition-colors">Gallery</a>
-                    <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                    <a href="#home" class="text-gray-400 hover:text-white transition-colors" data-en="Home"
+                        data-or="ହୋମ">Home</a>
+                    <a href="#gallery" class="text-gray-400 hover:text-white transition-colors" data-en="Gallery"
+                        data-or="ଗ୍ୟାଲେରୀ">Gallery</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition-colors" data-en="Contact"
+                        data-or="ଯୋଗାୟୋଗ">Contact</a>
                 </div>
 
                 <div class="text-center md:text-right text-sm text-gray-500">
@@ -835,7 +1528,9 @@
         class="fixed bottom-6 left-6 bg-white border border-gray-100 text-gray-800 px-5 py-4 rounded-2xl shadow-xl flex items-center justify-between max-w-sm transition-all duration-500 translate-y-32 z-40">
         <div class="flex items-center">
             <span class="text-2xl mr-3">🏠</span>
-            <p class="text-sm font-medium">Welcome to Aparna Residency — Scroll down to explore.</p>
+            <p class="text-sm font-medium" data-en="Welcome to Aparna Residency — Scroll down to explore."
+                data-or="ଅପର୍ଣା ରେସିଡେନ୍ସିକୁ ସ୍ୱାଗତ — ଅଧିକ ଜାଣିବା ପାଇଁ ତଳକୁ ସ୍କ୍ରୋଲ୍ କରନ୍ତୁ।">Welcome to Aparna
+                Residency — Scroll down to explore.</p>
         </div>
         <button id="close-welcome" class="ml-4 text-gray-400 hover:text-gray-600 focus:outline-none">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -846,7 +1541,30 @@
 
     <!-- JAVASCRIPT -->
     <script>
+        // --- Global: Language Toggle ---
+        function setLang(lang) {
+            localStorage.setItem('ar-lang', lang);
+            // data-en / data-or text swap
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const v = el.dataset[lang] || el.dataset.en;
+                if (v) el.textContent = v;
+            });
+            // placeholder swap
+            document.querySelectorAll('[data-ph-en]').forEach(el => {
+                el.placeholder = lang === 'or' ? el.dataset.phOr : el.dataset.phEn;
+            });
+            // toggle buttons
+            const bEn = document.getElementById('btn-en');
+            const bOr = document.getElementById('btn-or');
+            if (bEn) bEn.classList.toggle('active', lang === 'en');
+            if (bOr) bOr.classList.toggle('active', lang === 'or');
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            // Apply saved language
+            const savedLang = localStorage.getItem('ar-lang') || 'en';
+            if (savedLang !== 'en') setLang(savedLang);
+
             // --- Navbar Scroll Effect ---
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
@@ -923,48 +1641,42 @@
 
             // --- Gallery Generation & Lightbox ---
             const galleryContainer = document.getElementById('gallery-container');
+            const roomNames = ['Master Bedroom', 'Second Bedroom', 'Kitchen', 'Dining Area', 'Main Bathroom', 'Worship Room', 'Balcony 1', 'Balcony 2', 'Property Exterior', 'Common Area'];
             const images = [];
-            // Generate placeholders for img1 to img10
-            for (let i = 1; i <= 10; i++) {
-                images.push(`photos/img${i}.jpg`);
-            }
+            for (let i = 1; i <= 10; i++) images.push(`photos/img${i}.jpg`);
+            const unsplashIds = ['1600596542815-ffad4c1539a9', '1512917774080-9991f1c4c750', '1522708323590-d24dbb6b0267', '1484154218962-a197022b5858', '1497362962297-bbb472a4ca72', '1493809842364-4dd23db8b438', '1502672260266-1c1e55728329', '1560448204-e02f11c3d0e2', '1616594039964-ae69c47cb525', '1600607686527-6fb886090705'];
 
-            // Add images to masonry grid
             images.forEach((src, idx) => {
                 const item = document.createElement('div');
                 item.className = `masonry-item rounded-xl overflow-hidden cursor-pointer relative group bg-gray-800 animate-on-scroll delay-${(idx % 3) * 100}`;
-
-                // Set fallback unsplash images if local ones fail
-                const unsplashIds = [
-                    '1600596542815-ffad4c1539a9', '1512917774080-9991f1c4c750', '1522708323590-d24dbb6b0267',
-                    '1484154218962-a197022b5858', '1497362962297-bbb472a4ca72', '1493809842364-4dd23db8b438',
-                    '1502672260266-1c1e55728329', '1560448204-e02f11c3d0e2', '1616594039964-ae69c47cb525',
-                    '1600607686527-6fb886090705'
-                ];
-                const fallbackSrc = `https://images.unsplash.com/photo-${unsplashIds[idx % unsplashIds.length]}?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`;
-
+                const fallbackSrc = `https://images.unsplash.com/photo-${unsplashIds[idx]}?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80`;
                 item.innerHTML = `
-                    <img src="${src}" alt="Property view ${idx + 1}" loading="lazy" class="w-full h-auto transform group-hover:scale-[1.03] transition-transform duration-300 ease-out brightness-90 group-hover:brightness-100" onerror="this.src='${fallbackSrc}'">
+                    <img src="${src}" alt="${roomNames[idx]}" data-room="${roomNames[idx]}" loading="lazy" class="w-full h-auto transform group-hover:scale-[1.03] transition-transform duration-300 ease-out brightness-90 group-hover:brightness-100" onerror="this.src='${fallbackSrc}'">
                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
                         <svg class="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-50 group-hover:scale-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
                     </div>
+                    <div class="absolute bottom-2 left-2 right-2 text-center text-white text-xs font-medium bg-black/40 backdrop-blur-sm rounded-lg py-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">${roomNames[idx]}</div>
                 `;
                 item.addEventListener('click', () => openLightbox(idx));
                 galleryContainer.appendChild(item);
                 observer.observe(item);
             });
 
-            // Lightbox logic
+            // Lightbox
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
             const closeBtn = document.getElementById('lightbox-close');
             const prevBtn = document.getElementById('lightbox-prev');
             const nextBtn = document.getElementById('lightbox-next');
+            const lbCounter = document.getElementById('lb-counter');
+            const lbRoom = document.getElementById('lb-room');
             let currentImgIndex = 0;
+            let lbFromGallery = true;
 
             function openLightbox(index) {
+                lbFromGallery = true;
                 currentImgIndex = index;
-                updateLightboxImage();
+                updateLightboxImage(false);
                 lightbox.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
             }
@@ -974,36 +1686,68 @@
                 document.body.style.overflow = '';
             }
 
-            function updateLightboxImage() {
-                const img = galleryContainer.children[currentImgIndex].querySelector('img');
-                // Use src from DOM which might be unsplash if original failed
-                lightboxImg.src = img.src;
+            function updateLightboxImage(fade) {
+                const doUpdate = () => {
+                    if (lbFromGallery) {
+                        const imgEl = galleryContainer.children[currentImgIndex]?.querySelector('img');
+                        if (imgEl) { lightboxImg.src = imgEl.src; lbRoom.textContent = imgEl.dataset.room || ''; }
+                        lbCounter.textContent = `${currentImgIndex + 1} / ${images.length}`;
+                    }
+                    if (fade) lightboxImg.style.opacity = '1';
+                };
+                if (fade) { lightboxImg.style.opacity = '0'; setTimeout(doUpdate, 200); }
+                else doUpdate();
+            }
+
+            // Floor plan zoom
+            const fpImg = document.getElementById('floorplan-img');
+            if (fpImg) {
+                fpImg.addEventListener('click', () => {
+                    lbFromGallery = false;
+                    lightboxImg.src = fpImg.src;
+                    lbRoom.textContent = 'Floor Plan — 1000 sq. ft';
+                    lbCounter.textContent = '';
+                    lightbox.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
             }
 
             closeBtn.addEventListener('click', closeLightbox);
-
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) closeLightbox();
-            });
+            lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
 
             prevBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
+                if (!lbFromGallery) return;
                 currentImgIndex = (currentImgIndex - 1 + images.length) % images.length;
-                updateLightboxImage();
+                updateLightboxImage(true);
             });
-
             nextBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
+                if (!lbFromGallery) return;
                 currentImgIndex = (currentImgIndex + 1) % images.length;
-                updateLightboxImage();
+                updateLightboxImage(true);
             });
 
             document.addEventListener('keydown', (e) => {
                 if (lightbox.classList.contains('hidden')) return;
                 if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') prevBtn.click();
-                if (e.key === 'ArrowRight') nextBtn.click();
+                if (!lbFromGallery) return;
+                if (e.key === 'ArrowLeft') { currentImgIndex = (currentImgIndex - 1 + images.length) % images.length; updateLightboxImage(true); }
+                if (e.key === 'ArrowRight') { currentImgIndex = (currentImgIndex + 1) % images.length; updateLightboxImage(true); }
             });
+
+            // Touch swipe
+            let touchStartX = 0;
+            lightbox.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+            lightbox.addEventListener('touchend', (e) => {
+                if (!lbFromGallery) return;
+                const dx = e.changedTouches[0].clientX - touchStartX;
+                if (Math.abs(dx) > 50) {
+                    currentImgIndex = dx < 0 ? (currentImgIndex + 1) % images.length : (currentImgIndex - 1 + images.length) % images.length;
+                    updateLightboxImage(true);
+                }
+            }, { passive: true });
+
 
             // --- Form Submission & Toast ---
             const form = document.getElementById('enquiry-form');
@@ -1058,10 +1802,52 @@
 
             closeWelcome.addEventListener('click', () => {
                 welcomeToast.classList.add('translate-y-32');
-                // Could save to localStorage here so it doesn't show again
             });
+
+            // --- FAQ Accordion ---
+            document.querySelectorAll('.faq-question').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const item = btn.parentElement;
+                    const answer = item.querySelector('.faq-answer');
+                    const icon = btn.querySelector('.faq-icon');
+                    const isOpen = item.classList.contains('open');
+                    document.querySelectorAll('.faq-item').forEach(i => {
+                        i.classList.remove('open');
+                        i.querySelector('.faq-answer').style.maxHeight = '0';
+                        i.querySelector('.faq-icon').textContent = '+';
+                    });
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        icon.textContent = '−';
+                    }
+                });
+            });
+
+            // --- Landmark Cards Observer ---
+            const lmObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('lm-visible');
+                        lmObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.animate-lm').forEach(el => lmObserver.observe(el));
+
         });
     </script>
+    <!-- MOBILE STICKY BOTTOM BAR -->
+    <div class="mobile-sticky-bar">
+        <a href="tel:+918249279132" class="mobile-sticky-btn" id="mobile-call-btn"><span class="s-icon">📞</span><span
+                data-en="Call Now" data-or="କଲ୍ କରନ୍ତୁ">Call Now</span></a>
+        <a href="https://wa.me/918249279132" target="_blank" rel="noopener noreferrer" class="mobile-sticky-btn"
+            id="mobile-wa-btn"><span class="s-icon">💬</span><span data-en="WhatsApp"
+                data-or="ୱ୍ହାଟ୍ସଆପ">WhatsApp</span></a>
+        <a href="#enquiry" class="mobile-sticky-btn" id="mobile-enquire-btn"><span class="s-icon">📧</span><span
+                data-en="Enquire" data-or="ଅନୁସନ୍ଧାନ">Enquire</span></a>
+    </div>
+
 </body>
 
 </html>
